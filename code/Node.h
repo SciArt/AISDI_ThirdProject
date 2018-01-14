@@ -6,13 +6,15 @@
 class Node
 {
 public:
-    Node() : visited(false), visible(true) {}
+    Node() : visited(false), visited2(false), visible(true) {}
 
     std::list<Node*> adjacent_nodes;
 
     bool visited;
+    bool visited2;
     bool visible;
 
+    int value;
 private:
 };
 

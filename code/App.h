@@ -6,11 +6,11 @@
 class App
 {
 public:
-    void run(){}
+    void run();
 
 private:
     Graph graph;
-    void load(){}
+    void load();
 };
 
 #endif //AISDI_THIRDPROJECT_APP_H
