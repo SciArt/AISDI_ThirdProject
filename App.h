@@ -10,7 +10,6 @@ public:
 
 private:
     Graph graph;
-    void load();
 };
 
 #endif //AISDI_THIRDPROJECT_APP_H

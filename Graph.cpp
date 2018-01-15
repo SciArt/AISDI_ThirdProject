@@ -61,26 +61,31 @@ std::vector<Edge> Graph::searchForExtensiveBridges()
     std::vector<Edge> bridges;
     Edge edge;
 
-    size -= 2;
-    for( auto &it : nodes )
+    // If size is smaller or equal 2, then there is no bridges
+    if( nodes.size() <= 2 )
+        return bridges;
+
+    size = static_cast<unsigned int>(nodes.size() - 2);
+
+    for( auto it = nodes.begin(); it != nodes.end(); ++it )
     {
-        it.visible = false;
-        it.visited2 = true;
-        edge.n1 = &it;
-        for( auto &it2 : it.adjacent_nodes )
+        it->visible = false;
+        it->visited2 = true;
+        edge.n1 = &(*it);
+        for( auto &y : it->adjacent_nodes )
         {
-            if( !it2->visited2 )
+            if( !y->visited2 )
             {
-                it2->visible = false;
+                y->visible = false;
                 if( !checkConnectivity() )
                 {
-                    edge.n2 = it2;
+                    edge.n2 = y;
                     bridges.push_back(edge);
                 }
-                it2->visible = true;
+                y->visible = true;
             }
         }
-        it.visible = true;
+        it->visible = true;
     }
     size += 2;
 

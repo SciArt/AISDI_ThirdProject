@@ -5,7 +5,7 @@
 
 void App::run()
 {
-    int size;
+    unsigned int size;
     std::cin >> size;
     graph.createNodesWithoutEdges( size );
 
